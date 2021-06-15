@@ -38,7 +38,7 @@ map.save('map.html')
 app = FastAPI()
 
 
-
+!EXPORT 8000
 
 
 
@@ -53,6 +53,7 @@ filepath = "map.html"
 @app.get("/")
 def abc():
     f = open("map.html", "r", encoding="utf8")
+    print('abc')
 
 
 
