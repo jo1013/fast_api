@@ -1,23 +1,26 @@
-import webbrowser
 import requests
 import json
-from typing import Optional
-
-from fastapi import FastAPI
-from pydantic import BaseModel
 import csv
 import pandas as pd
+import folium
+import webbrowser
+import uvicorn
+
+
 from matplotlib import pyplot
-
-import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
-from fastapi.responses import HTMLResponse
-
+from typing import Optional
+from fastapi import FastAPI
+from pydantic import BaseModel
+from folium.plugins import MarkerCluster
 from bs4 import BeautifulSoup
+
+
+motor_acc = pd.read_csv('17_19_motorcycle.csv',encoding='cp949')
+
 
 seoul_location = motor_acc[['위도', '경도']]
 
-motor_acc = pd.read_csv('17_19_motorcycle.csv',encoding='cp949')
 map = folium.Map(location =  [37.5642,127.0016985,], zoom_start =12)
 
 for a in seoul_location.index:
@@ -45,12 +48,11 @@ soup = BeautifulSoup(f, 'html.parser')
 for link in soup.find_all('a'):
     print(link.get('href'))
 
-
+filepath = "map.html"
 
 @app.get("/")
-def read_root():
-
-motor_acc = pd.read_csv('/home/restapi/17_19_motorcycle.csv',encoding='cp949')
+def abc():
+    f = open("map.html", "r", encoding="utf8")
 
 
 
