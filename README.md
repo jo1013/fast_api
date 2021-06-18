@@ -12,7 +12,7 @@ $ docker run -it --rm -p 8888:8888 -p 8000:8000 -v ~/workspace:/home jo1013/fast
 ### docker docker 터미널 
 ```
 $docker exec -it b83b5afe25bd bash
-$docker exec -it [CONTAINER ID] bash
+$docker exec -it [CONTAINER ID or CONTAINER NAME] bash
 ```
 
 ### docker cotainer ID check
