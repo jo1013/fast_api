@@ -6,8 +6,10 @@
 
 ### 도커 컨테이너 실행 
 ```
-$ docker run -it --rm -p [로컬포트]:[컨테이너포트] -v [local 경로]:[컨테이너경로] [image]:[tag]
 $ docker run -it --rm -p 8888:8888 -p 8000:8000 -v ~/workspace:/home jo1013/fast_api:0.05
+
+$ docker run -it --rm -p [로컬포트]:[컨테이너포트] -v [local 경로]:[컨테이너경로] [image]:[tag]
+
 ```
 ### docker docker 터미널 
 ```
@@ -37,9 +39,14 @@ $ docker push [images]:[tag]
 ```
 
 
-### docker bash
+### docker bash에서 쥬피터 켜기
+
 ```
 $ jupyter notebook --allow-root --ip=0.0.0.0 --port=8888 --no-browser
 ```
  
- 
+ ## fast_api  작동시 호스트값을 넣어줘야함 
+ ```
+
+$ uvicorn main:app --reload --host=0.0.0.0 --port=8000
+```
