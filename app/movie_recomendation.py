@@ -2,6 +2,8 @@ from fastapi import FastAPI
 import recomandation
 from pydantic import BaseModel
 from typing import List
+from fastapi.responses import JSONResponse
+from fastapi.encoders import jsonable_encoder
 
 app = FastAPI()
 
@@ -11,11 +13,18 @@ class Item(BaseModel):
     recomand : List[str] = []
     
     
+@app.get("/")
+async def read_root():
+    return {"Hello": "World"}
     
 
-@app.post("/items/{user_id}")
+@app.get("/items/{user_id}")
 async def read_id(user_id: int):
-    return recomandation.reco(user_id)
+    t = recomandation.reco(user_id)
+    result = jsonable_encoder(t)
+#    return result
+    return result
+   # return recomandation.reco(user_id)
 
 
 
@@ -23,5 +32,5 @@ async def read_id(user_id: int):
 
 
 
-if __name__ == '__main__':
-    uvicorn.run(app='test:app', reload=True, debug=True)
+# if __name__ == '__main__':
+#     uvicorn.run(app='test:app', reload=True, debug=True)

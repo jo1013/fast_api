@@ -37,5 +37,7 @@ def reco(user_id,num_recommendations=15):
     # 컬럼 이름 바꾸고 정렬해서 return
     recommendations = recommendations.rename(columns = {user_row_number: 'Predictions'}).sort_values('Predictions', ascending = False).iloc[:num_recommendations, :]
     
-    t = recommendations['movieId']
-    return list(t)
+
+    df = recommendations.iloc[:,:1]
+    dit_movid = df.to_dict()
+    return dit_movid
