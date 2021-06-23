@@ -45,8 +45,16 @@ $ docker push [images]:[tag]
 $ jupyter notebook --allow-root --ip=0.0.0.0 --port=8888 --no-browser
 ```
  
- ## fast_api  작동시 호스트값을 넣어줘야함 
+ ## fast_api  개인 영화 추천 
  ```
 
-$ uvicorn main:app --reload --host=0.0.0.0 --port=8000
+$ uvicorn movie_recomendation:app --reload --host=0.0.0.0 --port=8000
+
 ```
+
+
+* 0.0.0.0:8000/items/[movie_id]
+
+
+참고자료 : https://fastapi.tiangolo.com/tutorial/response-model/
+https://github.com/lsjsj92/
