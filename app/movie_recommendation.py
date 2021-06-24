@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-import recomandation
+import recommendation as rd
 from pydantic import BaseModel
 from typing import List
 from fastapi.responses import JSONResponse
@@ -20,17 +20,9 @@ async def read_root():
 
 @app.get("/items/{user_id}")
 async def read_id(user_id: int):
-    t = recomandation.reco(user_id)
+    t = rd.reco(user_id)
     result = jsonable_encoder(t)
-#    return result
     return result
-   # return recomandation.reco(user_id)
 
 
 
-
-
-
-
-# if __name__ == '__main__':
-#     uvicorn.run(app='test:app', reload=True, debug=True)
