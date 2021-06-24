@@ -34,7 +34,7 @@ $ docker commit [container_id] [image]:[tag]
 
 ### docker push 
 ```
-$ docker push jo1013/fastapi:0.01
+$ docker push jo1013/fastapi:0.05
 $ docker push [images]:[tag]
 ```
 
