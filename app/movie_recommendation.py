@@ -1,9 +1,10 @@
 from fastapi import FastAPI
-import recommendation as rd
 from pydantic import BaseModel
 from typing import List
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
+
+import recommendation as rd
 
 app = FastAPI()
 
@@ -23,6 +24,3 @@ async def read_id(user_id: int):
     t = rd.reco(user_id)
     result = jsonable_encoder(t)
     return result
-
-
-

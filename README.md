@@ -8,7 +8,7 @@
 
 
 ```
-$ docker run -it --rm -p 8124:8124 -p 8000:8000 -v ~/workspace:/home jo1013/fast_api:0.05
+$ docker run -it --rm -p -d 8124:8124 -p 8000:8000 -v ~/workspace:/home jo1013/fast_api:0.05
 
 $ docker run -it --rm -p [로컬포트]:[컨테이너포트] -v [local 경로]:[컨테이너경로] [image]:[tag]
 
